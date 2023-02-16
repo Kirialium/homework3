@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TicketFragment extends Fragment {
 
@@ -36,11 +37,15 @@ public class TicketFragment extends Fragment {
         btnCountMines.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(adultCheckBox )
-                if(count > 1){
-                    count--;
-                    counterFragment.setText((String.valueOf(count)));
-                    setCostFragment(costFragment);
+                if(!adultCheckBox.isChecked() & !retireeCheckBox.isChecked() & !kidCheckBox.isChecked()){
+                    Toast.makeText(getActivity(), "Укажите категорию", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    if(count > 1){
+                        count--;
+                        counterFragment.setText((String.valueOf(count)));
+                        setCostFragment(costFragment);
+                    }
                 }
             }
         });
@@ -48,10 +53,15 @@ public class TicketFragment extends Fragment {
         btnCountPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(count != 10){
-                    count++;
-                    counterFragment.setText(String.valueOf(count));
-                    setCostFragment(costFragment);
+                if(!adultCheckBox.isChecked() & !retireeCheckBox.isChecked() & !kidCheckBox.isChecked()){
+                    Toast.makeText(getActivity(), "Укажите категорию", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    if(count != 10){
+                        count++;
+                        counterFragment.setText(String.valueOf(count));
+                        setCostFragment(costFragment);
+                    }
                 }
             }
         });
@@ -89,6 +99,8 @@ public class TicketFragment extends Fragment {
         return rootView;
     }
     private void setCostFragment(TextView costFragment){
-        costFragment.setText(String.valueOf(costFragment));
+
+        String strCost = String.valueOf(costTicket);
+        costFragment.setText((String)strCost);
     }
 }
