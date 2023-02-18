@@ -33,6 +33,8 @@ public class TicketFragment extends Fragment {
         TextView counterFragment = (TextView) rootView.findViewById(R.id.counter_fragment);
         TextView costFragment = (TextView) rootView.findViewById(R.id.cost_fragment);
 
+        counterFragment.setText((String.valueOf(count)));
+
         //Плюс и минус для каунта
         btnCountMines.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,8 +74,7 @@ public class TicketFragment extends Fragment {
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 costTicket = turCostAdult * count;
                 setCostFragment(costFragment);
-                retireeCheckBox.setChecked(false);
-                kidCheckBox.setChecked(false);
+                setFalseCheckBox(retireeCheckBox, kidCheckBox);
             }
         });
 
@@ -82,8 +83,7 @@ public class TicketFragment extends Fragment {
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 costTicket = turCostRetiree * count;
                 setCostFragment(costFragment);
-                adultCheckBox.setChecked(false);
-                kidCheckBox.setChecked(false);
+                setFalseCheckBox(adultCheckBox,kidCheckBox);
             }
         });
         kidCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -91,8 +91,7 @@ public class TicketFragment extends Fragment {
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 costTicket = turCostKid * count;
                 setCostFragment(costFragment);
-                adultCheckBox.setChecked(false);
-                retireeCheckBox.setChecked(false);
+                setFalseCheckBox(adultCheckBox,retireeCheckBox);
             }
         });
 
@@ -102,5 +101,10 @@ public class TicketFragment extends Fragment {
 
         String strCost = String.valueOf(costTicket);
         costFragment.setText((String)strCost);
+    }
+
+    private void setFalseCheckBox(CheckBox firstCheckBox,CheckBox secondCheckBox){
+        firstCheckBox.setChecked(false);
+        secondCheckBox.setChecked(false);
     }
 }
