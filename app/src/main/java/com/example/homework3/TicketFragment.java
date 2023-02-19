@@ -2,6 +2,8 @@ package com.example.homework3;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,11 +22,11 @@ public class TicketFragment extends Fragment {
     int costTicket = 0;
     int count = 1;
 
+
     @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_ticket, container, false);
-
         Button btnCountMines = (Button) rootView.findViewById(R.id.btn_count_minus);
         Button btnCountPlus = (Button) rootView.findViewById(R.id.btn_count_plus);
         CheckBox adultCheckBox = (CheckBox) rootView.findViewById(R.id.adult_check_box);
@@ -32,7 +34,6 @@ public class TicketFragment extends Fragment {
         CheckBox kidCheckBox = (CheckBox) rootView.findViewById(R.id.kid_check_box);
         TextView counterFragment = (TextView) rootView.findViewById(R.id.counter_fragment);
         TextView costFragment = (TextView) rootView.findViewById(R.id.cost_fragment);
-
         counterFragment.setText((String.valueOf(count)));
 
         //Плюс и минус для каунта
@@ -72,39 +73,45 @@ public class TicketFragment extends Fragment {
         adultCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                costTicket = turCostAdult * count;
-                setCostFragment(costFragment);
-                setFalseCheckBox(retireeCheckBox, kidCheckBox);
+                if(isChecked) {
+                    setFalseCheckBox(retireeCheckBox, kidCheckBox);
+                    costTicket = turCostAdult * count;
+                    setCostFragment(costFragment);
+                }
             }
         });
 
         retireeCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                costTicket = turCostRetiree * count;
-                setCostFragment(costFragment);
-                setFalseCheckBox(adultCheckBox,kidCheckBox);
+                if(isChecked) {
+                    setFalseCheckBox(adultCheckBox, kidCheckBox);
+                    costTicket = turCostRetiree * count;
+                    setCostFragment(costFragment);
+                }
             }
         });
         kidCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                costTicket = turCostKid * count;
-                setCostFragment(costFragment);
-                setFalseCheckBox(adultCheckBox,retireeCheckBox);
+                if(isChecked) {
+                    setFalseCheckBox(adultCheckBox, retireeCheckBox);
+                    costTicket = turCostKid * count;
+                    setCostFragment(costFragment);
+                }
             }
         });
 
         return rootView;
     }
-    private void setCostFragment(TextView costFragment){
 
-        String strCost = String.valueOf(costTicket);
-        costFragment.setText((String)strCost);
+    private void setFalseCheckBox(@NonNull CheckBox firstCheckBox, CheckBox secondCheckBox){
+        if (firstCheckBox.isChecked()) firstCheckBox.setChecked(false);
+        if(secondCheckBox.isChecked()) secondCheckBox.setChecked(false);
     }
 
-    private void setFalseCheckBox(CheckBox firstCheckBox,CheckBox secondCheckBox){
-        firstCheckBox.setChecked(false);
-        secondCheckBox.setChecked(false);
+    private void setCostFragment(@NonNull TextView costFragment){
+        String strCost = String.valueOf(costTicket * count);
+        costFragment.setText((String)strCost);
     }
 }
