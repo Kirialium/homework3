@@ -6,9 +6,11 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private Button addNewTicketBtn;
     private View lineBehind1, lineBehind2;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                         ft.replace(R.id.first_frame, firstFragment);
                         ft.commit();
+
                         lineBehind1.setAlpha(1);
                         break;
                     case 2:
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void fillVariables(){
         addNewTicketBtn = findViewById(R.id.btn_new_ticket);

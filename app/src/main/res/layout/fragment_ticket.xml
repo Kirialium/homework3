@@ -12,51 +12,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="Билет для:"
+        android:text="@string/ticket_for_string"
         android:textColor="@color/white"
         android:textSize="22sp"
         android:fontFamily="@font/coolvetica"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent" />
     <CheckBox
         android:id="@+id/adult_check_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="Взрослый"
+        android:text="@string/adult_string"
         android:textColor="@color/white"
         android:fontFamily="@font/coolvetica"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@+id/ticket_for"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintLeft_toLeftOf="parent" />
     <CheckBox
         android:id="@+id/retiree_check_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="Пенсионер"
+        android:text="@string/retiree_string"
         android:textColor="@color/white"
         android:fontFamily="@font/coolvetica"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@+id/adult_check_box"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintLeft_toLeftOf="parent" />
     <CheckBox
         android:id="@+id/kid_check_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="Ребёнок"
+        android:text="@string/kid_string"
         android:textColor="@color/white"
         android:fontFamily="@font/coolvetica"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@+id/retiree_check_box"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintLeft_toLeftOf="parent" />
     <TextView
         android:id="@+id/dotted_border"
         android:layout_width="wrap_content"
@@ -71,22 +67,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/text_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginRight="72dp"
+        android:layout_marginEnd="72dp"
         android:fontFamily="@font/coolvetica"
-        android:text="Количество:"
+        android:text="@string/quantity_string"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/count_minus"
@@ -101,8 +95,7 @@
         android:textSize="28sp"
         android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_count"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/text_count" />
 
     <TextView
         android:id="@+id/counter_fragment"
@@ -117,8 +110,7 @@
         android:textSize="22sp"
         android:gravity="center"
         app:layout_constraintLeft_toRightOf="@id/count_minus"
-        app:layout_constraintTop_toBottomOf="@id/text_count"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@id/text_count" />
 
     <TextView
         android:id="@+id/count_plus"
@@ -132,8 +124,7 @@
         android:textSize="30sp"
         android:layout_marginStart="10dp"
         app:layout_constraintLeft_toRightOf="@id/counter_fragment"
-        app:layout_constraintTop_toBottomOf="@+id/text_count"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/text_count" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -144,8 +135,7 @@
         app:layout_constraintRight_toRightOf="@id/count_plus"
         app:layout_constraintTop_toTopOf="@+id/count_plus"
         app:layout_constraintLeft_toLeftOf="@+id/count_plus"
-        app:layout_constraintBottom_toBottomOf="@+id/count_plus"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toBottomOf="@+id/count_plus" />
 
     <TextView
         android:id="@+id/text_final"
@@ -153,13 +143,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="14dp"
         android:layout_marginEnd="130dp"
-        android:text="Стоимость:"
+        android:text="@string/cost_string"
         android:fontFamily="@font/coolvetica"
         android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toBottomOf="parent" />
+
     <TextView
         android:id="@+id/cost_fragment"
         android:layout_width="100dp"
@@ -173,8 +163,7 @@
         android:textSize="22sp"
         android:background="@drawable/rect"
         app:layout_constraintLeft_toRightOf="@+id/text_final"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
         android:id="@+id/btn_count_minus"
@@ -184,8 +173,8 @@
         app:layout_constraintRight_toRightOf="@+id/count_minus"
         app:layout_constraintBottom_toBottomOf="@+id/count_minus"
         app:layout_constraintLeft_toLeftOf="@+id/count_minus"
-        app:layout_constraintTop_toTopOf="@+id/count_minus"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="@+id/count_minus" />
+
     <Button
         android:id="@+id/btn_count_plus"
         android:layout_width="40dp"
@@ -194,7 +183,6 @@
         app:layout_constraintRight_toRightOf="@+id/count_plus"
         app:layout_constraintBottom_toBottomOf="@+id/count_plus"
         app:layout_constraintLeft_toLeftOf="@+id/count_plus"
-        app:layout_constraintTop_toTopOf="@+id/count_plus"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="@+id/count_plus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

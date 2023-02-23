@@ -1,6 +1,8 @@
 package com.example.homework3;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,14 +16,13 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class TicketFragment extends Fragment {
+public class TicketFragment extends Fragment{
 
-    final int turCostAdult = 70;
-    final int turCostKid = 35;
-    final int turCostRetiree = 21;
-    int costTicket = 0;
-    int count = 1;
-
+    private final int turCostAdult = 70;
+    private final int turCostKid = 35;
+    private final int turCostRetiree = 21;
+    public int costTicket = 0;
+    private int count = 1;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -114,4 +115,13 @@ public class TicketFragment extends Fragment {
         String strCost = String.valueOf(costTicket * count);
         costFragment.setText((String)strCost);
     }
+    
+    public void transferFragment(){
+        Fragment totalCostFragment = new Fragment();
+        Bundle bundle = new Bundle();
+        String key = "12";
+        bundle.putInt(key, costTicket);
+        totalCostFragment.setArguments(bundle);
+    }
+
 }

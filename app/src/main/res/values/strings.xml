@@ -2,4 +2,13 @@
     <string name="app_name">homework3</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Строки для билета -->
+    <string name="adult_string">Взрослый</string>
+    <string name="retiree_string">Пенсионер</string>
+    <string name="kid_string">Ребёнок</string>
+    <string name="ticket_for_string">Билет для:</string>
+    <string name="quantity_string">Количество:</string>
+    <string name="cost_string">Стоимость:</string>
+
 </resources>
