@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -21,8 +23,8 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Objects.requireNonNull(this.getSupportActionBar()).hide();
+        setSystemBarsColor();
         fillVariables();
-
         addNewTicketBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,5 +61,13 @@ public class MainActivity extends AppCompatActivity{
         addNewTicketBtn = findViewById(R.id.btn_new_ticket);
         lineBehind1 = findViewById(R.id.line_behind_1);
         lineBehind2 = findViewById(R.id.line_behind_2);
+    }
+
+    private void setSystemBarsColor() {
+        Window window = this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(this.getResources().getColor(R.color.third_color));
+        getWindow().setNavigationBarColor(getResources().getColor(R.color.second_color));
     }
 }

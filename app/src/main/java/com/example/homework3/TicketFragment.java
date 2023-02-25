@@ -1,12 +1,13 @@
 package com.example.homework3;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -115,13 +116,4 @@ public class TicketFragment extends Fragment{
         String strCost = String.valueOf(costTicket * count);
         costFragment.setText((String)strCost);
     }
-    
-    public void transferFragment(){
-        Fragment totalCostFragment = new Fragment();
-        Bundle bundle = new Bundle();
-        String key = "12";
-        bundle.putInt(key, costTicket);
-        totalCostFragment.setArguments(bundle);
-    }
-
 }
